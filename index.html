@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jadwal Pelajaran</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="glass-card">
+            <h1>Jadwal Pelajaran</h1>
+            <p class="subtitle">Pilih jadwal sesuai hari yang anda inginkan.</p>
+            
+            <div class="form-group">
+                <select id="daySelect" class="glass-select">
+                    <option value="">Pilih Hari</option>
+                    <option value="senin">Senin</option>
+                    <option value="selasa">Selasa</option>
+                    <option value="rabu">Rabu</option>
+                    <option value="kamis">Kamis</option>
+                    <option value="jumat">Jumat</option>
+                </select>
+            </div>
+            
+            <button id="checkButton" class="glass-button">Check Jadwal</button>
+            
+            <div id="result" class="result-area"></div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
