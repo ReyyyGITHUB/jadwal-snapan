@@ -3,32 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jadwal Pelajaran</title>
+    <title>Jadwal Pelajaran X PPLG 2</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <div class="glass-card">
-            <h1>Jadwal Pelajaran</h1>
-            <p class="subtitle">Pilih jadwal sesuai hari yang anda inginkan.</p>
-            
-            <div class="form-group">
-                <select id="daySelect" class="glass-select">
-                    <option value="">Pilih Hari</option>
-                    <option value="senin">Senin</option>
-                    <option value="selasa">Selasa</option>
-                    <option value="rabu">Rabu</option>
-                    <option value="kamis">Kamis</option>
-                    <option value="jumat">Jumat</option>
-                </select>
-            </div>
-            
-            <button id="checkButton" class="glass-button">Check Jadwal</button>
-            
-            <div id="result" class="result-area"></div>
+    <header>
+        <div class="container-jadwal-title">Jadwal Pelajaran - X PPLG 2</div>
+    </header>
+
+    <main class="hero">
+        <div class="container">
+            <span class="badge">Website Pengingat Jadwal</span>
         </div>
-    </div>
-    
+
+        <div class="hero-title">
+            <h1>Bingung Besok Pilih Mapel? Biar Jadwal Otomatis yang Atur</h1>
+        </div>
+
+        <div class="subtitle">
+            <p>Solusi cerdas untuk siswa X PPLG - 2</p>
+        </div>  
+        
+        <div class="container-searchBar">
+            <select name="pilihan" id="daySelect">
+                <option value="">Pilih Hari...</option>
+                <option value="senin">Senin</option>
+                <option value="selasa">Selasa</option>
+                <option value="rabu">Rabu</option>
+                <option value="kamis">Kamis</option>
+                <option value="jumat">Jumat</option>
+            </select>
+            <button id="checkButton">Lihat Jadwal</button>
+        </div>
+
+        <div id="result" class="result-container hidden">
+            <!-- Hasil jadwal akan muncul di sini -->
+        </div>
+    </main>
+
     <script src="script.js"></script>
 </body>
 </html>
