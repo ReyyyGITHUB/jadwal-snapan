@@ -1,22 +1,15 @@
 // Data jadwal pelajaran untuk setiap hari
 const jadwalData = {
     senin: [
-        { time: "07:00 - 07:45", subject: "SEJARAH" },
-        { time: "07:45 - 08:30", subject: "SEJARAH" },
+        { time: "07:00 - 08:30", subject: "SEJARAH" },
         { time: "08:30 - 09:15", subject: "B.JAWA" },
-        { time: "09:15 - 10:00", subject: "B.INGGRIS" },
-        { time: "10:15 - 11:00", subject: "B.INGGRIS" },
-        { time: "11:00 - 11:45", subject: "B.INDONESIA" },
-        { time: "12:15 - 13:00", subject: "B.INDONESIA" },
-        { time: "13:00 - 13:45", subject: "PJOK" },
-        { time: "13:45 - 14:30", subject: "PJOK" },
-        { time: "14:30 - 15:15", subject: "PJOK" }
+        { time: "09:15 - 11:00", subject: "B.INGGRIS" },
+        { time: "11:00 - 13:00", subject: "B.INDONESIA" },
+        { time: "13:00 - 15:15", subject: "PJOK" }
     ],
     selasa: [
-        { time: "07:00 - 08:30", subject: "INFORMATIKA" },
-        { time: "08:30 - 10:00", subject: "INFORMATIKA" },
-        { time: "10:15 - 11:45", subject: "PPLG" },
-        { time: "11:45 - 13:00", subject: "PPLG" }
+        { time: "07:00 - 10:00", subject: "INFORMATIKA" },
+        { time: "10:15 - 13:00", subject: "PPLG" }
     ],
     rabu: [
         { time: "07:00 - 08:30", subject: "B.INDONESIA" },
@@ -38,6 +31,7 @@ const jadwalData = {
         { time: "11:45 - 13:00", subject: "IPAS" }
     ]
 };
+
 
 
 // Nama hari dalam bahasa Indonesia
@@ -207,4 +201,5 @@ console.log(`
 📅 Data jadwal tersedia untuk:
 ${Object.keys(namaHari).map(day => `   • ${namaHari[day]}`).join('\n')}
 `);
+
 
