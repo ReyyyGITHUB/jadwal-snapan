@@ -1,205 +1,170 @@
-// Data jadwal pelajaran untuk setiap hari
+// Data jadwal
 const jadwalData = {
-    senin: [
-        { time: "07:00 - 08:30", subject: "SEJARAH" },
-        { time: "08:30 - 09:15", subject: "B.JAWA" },
-        { time: "09:15 - 11:00", subject: "B.INGGRIS" },
-        { time: "11:00 - 13:00", subject: "B.INDONESIA" },
-        { time: "13:00 - 15:15", subject: "PJOK" }
-    ],
-    selasa: [
-        { time: "07:00 - 10:00", subject: "INFORMATIKA" },
-        { time: "10:15 - 13:00", subject: "PPLG" }
-    ],
-    rabu: [
-        { time: "07:00 - 08:30", subject: "B.INDONESIA" },
-        { time: "08:30 - 10:00", subject: "MATEMATIKA" },
-        { time: "10:15 - 11:45", subject: "B.INGGRIS" },
-        { time: "11:45 - 13:00", subject: "PPKN" },
-        { time: "13:00 - 14:30", subject: "SENI MUSIK" }
-    ],
-    kamis: [
-        { time: "07:00 - 08:30", subject: "MATEMATIKA" },
-        { time: "08:30 - 10:00", subject: "IPAS" },
-        { time: "10:15 - 11:45", subject: "B.JAWA" },
-        { time: "11:45 - 13:00", subject: "AGAMA ISLAM" }
-    ],
-    jumat: [
-        { time: "07:00 - 08:30", subject: "PPLG" },
-        { time: "08:30 - 10:00", subject: "GIM" },
-        { time: "10:15 - 11:45", subject: "KKA" },
-        { time: "11:45 - 13:00", subject: "IPAS" }
+  senin: {
+    ruang: "Ruang 2",
+    jadwal: [
+      { mapel: "Matematika", jam: "07.00 - 08.30" },
+      { mapel: "Bahasa Indonesia", jam: "08.30 - 10.00" },
+      { mapel: "Istirahat", jam: "10.00 - 10.15" },
+      { mapel: "Pemrograman Web", jam: "10.15 - 11.45" },
+      { mapel: "Basis Data", jam: "12.15 - 13.45" }
     ]
-};
-
-
-
-// Nama hari dalam bahasa Indonesia
-const namaHari = {
-    senin: "Senin",
-    selasa: "Selasa",
-    rabu: "Rabu",
-    kamis: "Kamis",
-    jumat: "Jumat"
+  },
+  selasa: {
+    ruang: "Ruang 1",
+    jadwal: [
+      { mapel: "Bahasa Inggris", jam: "07.00 - 08.30" },
+      { mapel: "Pemrograman Dasar", jam: "08.30 - 10.00" },
+      { mapel: "Istirahat", jam: "10.00 - 10.15" },
+      { mapel: "Sistem Operasi", jam: "10.15 - 11.45" },
+      { mapel: "Jaringan Komputer", jam: "12.15 - 13.45" }
+    ]
+  },
+  rabu: {
+    ruang: "Ruang 3",
+    jadwal: [
+      { mapel: "PKN", jam: "07.00 - 08.30" },
+      { mapel: "Pemrograman Berorientasi Objek", jam: "08.30 - 10.00" },
+      { mapel: "Istirahat", jam: "10.00 - 10.15" },
+      { mapel: "Design Grafis", jam: "10.15 - 11.45" },
+      { mapel: "Multimedia", jam: "12.15 - 13.45" }
+    ]
+  },
+  kamis: {
+    ruang: "Lab Komputer",
+    jadwal: [
+      { mapel: "Agama", jam: "07.00 - 08.30" },
+      { mapel: "Pemrograman Mobile", jam: "08.30 - 10.00" },
+      { mapel: "Istirahat", jam: "10.00 - 10.15" },
+      { mapel: "Struktur Data", jam: "10.15 - 11.45" },
+      { mapel: "Algoritma", jam: "12.15 - 13.45" }
+    ]
+  },
+  jumat: {
+    ruang: "Aula",
+    jadwal: [
+      { mapel: "Olahraga", jam: "07.00 - 08.30" },
+      { mapel: "Seni Budaya", jam: "08.30 - 10.00" },
+      { mapel: "Istirahat", jam: "10.00 - 10.15" },
+      { mapel: "Prakerin", jam: "10.15 - 11.45" }
+    ]
+  }
 };
 
 // DOM Elements
-const daySelect = document.getElementById('daySelect');
-const checkButton = document.getElementById('checkButton');
-const resultContainer = document.getElementById('result');
+const checkJadwalBtn = document.getElementById('checkJadwalBtn');
+const dropdown = document.getElementById('dropdown');
+const chevron = document.getElementById('chevron');
+const overlay = document.getElementById('overlay');
+const jadwalModal = document.getElementById('jadwalModal');
+const selectedDayElement = document.getElementById('selectedDay');
+const selectedRoomElement = document.getElementById('selectedRoom');
+const jadwalContainer = document.getElementById('jadwalContainer');
+const closeModal = document.getElementById('closeModal');
+const dayBtns = document.querySelectorAll('.day-btn');
 
-// Fungsi untuk mendapatkan hari saat ini
-function getCurrentDay() {
-    const days = ['minggu', 'senin', 'selasa', 'rabu', 'kamis', 'jumat', 'sabtu'];
-    const today = new Date().getDay();
-    return days[today];
-}
+// State
+let isDropdownOpen = false;
 
-// Fungsi untuk menampilkan jadwal - INSTANT
-function displaySchedule(day) {
-    if (!day) {
-        showError("Silakan pilih hari terlebih dahulu!");
-        return;
-    }
-
-    const schedule = jadwalData[day];
-    if (!schedule) {
-        showError(`Jadwal untuk hari ${namaHari[day]} tidak ditemukan!`);
-        return;
-    }
-
-    // Buat HTML untuk jadwal - no animation delays
-    let scheduleHTML = `<h3>Jadwal ${namaHari[day]}</h3>`;
-    
-    schedule.forEach((item) => {
-        scheduleHTML += `
-            <div class="schedule-item">
-                <div class="time">${item.time}</div>
-                <div class="subject">${item.subject}</div>
-            </div>
-        `;
-    });
-
-    // Tampilkan hasil instantly
-    resultContainer.innerHTML = scheduleHTML;
-    resultContainer.classList.remove('hidden');
-}
-
-// Fungsi untuk menampilkan error - INSTANT
-function showError(message) {
-    resultContainer.innerHTML = `
-        <div style="text-align: center; color: #e74c3c; font-weight: 500;">
-            <p>${message}</p>
-        </div>
-    `;
-    resultContainer.classList.remove('hidden');
-}
-
-// Removed animation functions - INSTANT DISPLAY
-
-// Event listener untuk tombol check - INSTANT
-checkButton.addEventListener('click', () => {
-    const selectedDay = daySelect.value;
-    displaySchedule(selectedDay);
+// Event Listeners
+checkJadwalBtn.addEventListener('click', (e) => {
+  e.stopPropagation();
+  toggleDropdown();
 });
 
-// Event listener untuk perubahan pilihan hari - INSTANT
-daySelect.addEventListener('change', () => {
-    resultContainer.classList.add('hidden');
-    resultContainer.innerHTML = '';
+document.addEventListener('click', (e) => {
+  if (!dropdown.contains(e.target) && !checkJadwalBtn.contains(e.target)) {
+    closeDropdown();
+  }
 });
 
-// Event listener untuk keyboard navigation
-daySelect.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter') {
-        checkButton.click();
-    }
+dayBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    const selectedDay = btn.getAttribute('data-day');
+    showJadwal(selectedDay);
+    closeDropdown();
+  });
 });
 
-// Auto-select hari ini saat halaman dimuat
-document.addEventListener('DOMContentLoaded', () => {
-    const currentDay = getCurrentDay();
-    
-    // Jika hari ini adalah hari sekolah, auto-select
-    if (jadwalData[currentDay]) {
-        daySelect.value = currentDay;
-        
-        // Tampilkan notifikasi instantly
-        setTimeout(() => {
-            const notification = document.createElement('div');
-            notification.style.cssText = `
-                position: fixed;
-                top: 20px;
-                right: 20px;
-                background: #7D938A;
-                color: white;
-                padding: 12px 20px;
-                border-radius: 25px;
-                font-size: 14px;
-                box-shadow: 0 4px 15px rgba(125, 147, 138, 0.3);
-                z-index: 1000;
-            `;
-            notification.textContent = `Hari ini: ${namaHari[currentDay]}`;
-            
-            document.body.appendChild(notification);
-            
-            // Hapus notifikasi setelah 2 detik
-            setTimeout(() => {
-                document.body.removeChild(notification);
-            }, 2000);
-        }, 500);
-    }
-});
+closeModal.addEventListener('click', closeModalFunction);
+overlay.addEventListener('click', closeModalFunction);
 
-// Removed notification animations for speed
-
-// Fungsi untuk mendapatkan jadwal hari berikutnya
-function getNextDaySchedule() {
-    const currentDay = getCurrentDay();
-    const days = ['senin', 'selasa', 'rabu', 'kamis', 'jumat'];
-    const currentIndex = days.indexOf(currentDay);
-    
-    if (currentIndex === -1 || currentIndex === 4) {
-        return 'senin'; // Jika weekend atau Jumat, return Senin
-    }
-    
-    return days[currentIndex + 1];
-}
-
-// Tambahkan fitur shortcut keyboard
 document.addEventListener('keydown', (e) => {
-    // Ctrl/Cmd + 1-5 untuk pilih hari
-    if ((e.ctrlKey || e.metaKey) && e.key >= '1' && e.key <= '5') {
-        e.preventDefault();
-        const days = ['senin', 'selasa', 'rabu', 'kamis', 'jumat'];
-        const dayIndex = parseInt(e.key) - 1;
-        daySelect.value = days[dayIndex];
-        checkButton.click();
-    }
-    
-    // Enter untuk submit
-    if (e.key === 'Enter' && document.activeElement !== daySelect) {
-        checkButton.click();
-    }
-    
-    // Escape untuk reset - INSTANT
-    if (e.key === 'Escape') {
-        daySelect.value = '';
-        resultContainer.classList.add('hidden');
-        resultContainer.innerHTML = '';
-    }
+  if (e.key === 'Escape') {
+    closeModalFunction();
+  }
 });
 
-// Console log untuk developer
-console.log(`
-🎓 Website Jadwal Pelajaran X PPLG 2
-📚 Shortcut Keyboard:
-   • Ctrl/Cmd + 1-5: Pilih hari (Senin-Jumat)
-   • Enter: Lihat jadwal
-   • Escape: Reset pilihan
+// Functions
+function toggleDropdown() {
+  isDropdownOpen = !isDropdownOpen;
+  
+  if (isDropdownOpen) {
+    dropdown.classList.add('show');
+    chevron.style.transform = 'rotate(180deg)';
+  } else {
+    dropdown.classList.remove('show');
+    chevron.style.transform = 'rotate(0deg)';
+  }
+}
 
-📅 Data jadwal tersedia untuk:
-${Object.keys(namaHari).map(day => `   • ${namaHari[day]}`).join('\n')}
-`);
+function closeDropdown() {
+  isDropdownOpen = false;
+  dropdown.classList.remove('show');
+  chevron.style.transform = 'rotate(0deg)';
+}
 
+function openModal() {
+  overlay.classList.add('show');
+  jadwalModal.classList.add('show');
+  document.body.classList.add('modal-open');
+  
+  // Small delay for smooth animation
+  setTimeout(() => {
+    const modalContent = jadwalModal.querySelector('.modal-content');
+    modalContent.style.transform = 'scale(1)';
+  }, 10);
+}
 
+function closeModalFunction() {
+  overlay.classList.remove('show');
+  jadwalModal.classList.remove('show');
+  document.body.classList.remove('modal-open');
+  
+  const modalContent = jadwalModal.querySelector('.modal-content');
+  modalContent.style.transform = 'scale(0.95)';
+}
+
+function showJadwal(day) {
+  const jadwalInfo = jadwalData[day];
+  const jadwal = jadwalInfo.jadwal;
+  const ruang = jadwalInfo.ruang;
+  
+  // Update modal header info
+  selectedDayElement.textContent = `${day.charAt(0).toUpperCase() + day.slice(1)}`;
+  selectedRoomElement.textContent = ruang;
+  
+  // Clear previous jadwal
+  jadwalContainer.innerHTML = '';
+  
+  // Create jadwal items
+  jadwal.forEach(item => {
+    const jadwalItem = document.createElement('div');
+    jadwalItem.className = 'jadwal-item';
+    
+    // Add special styling for istirahat
+    if (item.mapel.toLowerCase() === 'istirahat') {
+      jadwalItem.classList.add('istirahat');
+    }
+    
+    jadwalItem.innerHTML = `
+      <div class="jadwal-mapel">${item.mapel}</div>
+      <div class="jadwal-jam">Jam pelajaran: ${item.jam}</div>
+    `;
+    
+    jadwalContainer.appendChild(jadwalItem);
+  });
+  
+  // Open modal
+  openModal();
+}
