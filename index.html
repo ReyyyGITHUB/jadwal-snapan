@@ -1,76 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-  <title>Jadwal Snapan - Made by Raditya Rayhan</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>Jadwal Snapan - Made by Raditya Rayhan</title>
 </head>
 <body>
-  <!-- Navbar -->
-  <nav class="navbar">
-    <div class="nav-content">
-      <img src="src/assets/smk8smg-logo.png" class="nav-logo" alt="">
-      <div class="nav-text">Jadwal Snapan</div>
-    </div>
-  </nav>
-
-  <!-- Hero Section -->
-  <section class="hero-section">
-    <h1 class="hero-title">Your schedule, my reminder!</h1>
-    <h2 class="hero-subtitle">Smart notification system that actually works</h2>
-    
-    <!-- Check Jadwal Button -->
-    <div class="button-container">
-      <button id="checkJadwalBtn" class="check-jadwal-btn">
-        Check Jadwal
-        <svg class="chevron" id="chevron" fill="currentColor" viewBox="0 0 20 20">
-          <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
-        </svg>
-      </button>
-      
-      <!-- Dropdown -->
-      <div id="dropdown" class="dropdown">
-        <div class="dropdown-content">
-          <button class="day-btn" data-day="senin">Senin</button>
-          <button class="day-btn" data-day="selasa">Selasa</button>
-          <button class="day-btn" data-day="rabu">Rabu</button>
-          <button class="day-btn" data-day="kamis">Kamis</button>
-          <button class="day-btn" data-day="jumat">Jumat</button>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-content">
+            <img src="assets/smk8smg-logo.png" class="nav-logo" alt="">
+            <div class="nav-text">Jadwal Snapan</div>
         </div>
-      </div>
-    </div>
-  </section>
+    </nav>
 
-  <!-- Overlay -->
-  <div id="overlay" class="overlay"></div>
-
-  <!-- Modal -->
-  <div id="jadwalModal" class="modal">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h3 class="modal-title">Jadwal Pelajaran X PPLG 2</h3>
-        <button id="closeModal" class="close-btn">
-          <svg class="close-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
-              d="M6 18L18 6M6 6l12 12"></path>
-          </svg>
-        </button>
-      </div>
-      <div class="modal-body">
-        <div class="modal-info">
-          <div id="selectedDay" class="selected-day">Pilih hari untuk melihat jadwal</div>
-          <div id="selectedRoom" class="selected-room">Ruang -</div>
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <h1 class="hero-title">Your schedule, my reminder!</h1>
+        <h2 class="hero-subtitle">Smart notification system that actually works</h2>
+        <!-- Check Jadwal Button -->
+        <div class="button-container">
+            <button id="checkJadwalBtn" class="check-jadwal-btn">
+                Check Jadwal
+                <svg class="chevron" id="chevron" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                </svg>
+            </button>
+            <!-- Dropdown -->
+            <div id="dropdown" class="dropdown">
+                <div class="dropdown-content">
+                    <button class="day-btn" data-day="senin">Senin</button>
+                    <button class="day-btn" data-day="selasa">Selasa</button>
+                    <button class="day-btn" data-day="rabu">Rabu</button>
+                    <button class="day-btn" data-day="kamis">Kamis</button>
+                    <button class="day-btn" data-day="jumat">Jumat</button>
+                </div>
+            </div>
         </div>
-        <div id="jadwalContainer" class="jadwal-container"></div>
-      </div>
-    </div>
-  </div>
+    </section>
 
-  <script src="script.js"></script>
+    <!-- Overlay -->
+    <div id="overlay" class="overlay"></div>
+
+    <!-- Modal -->
+    <div id="jadwalModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Jadwal Pelajaran X PPLG 2</h3>
+                <button id="closeModal" class="close-btn">
+                    <svg class="close-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                            d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-info">
+                    <div id="selectedDay" class="selected-day">Pilih hari untuk melihat jadwal</div>
+                    <div id="selectedRoom" class="selected-room">Ruang -</div>
+                </div>
+                <div id="jadwalContainer" class="jadwal-container"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
-
