@@ -1,47 +1,75 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jadwal Pelajaran X PPLG 2</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <title>Jadwal Snapan - Made by Raditya Rayhan</title>
 </head>
 <body>
-    <header>
-        <div class="container-jadwal-title">Jadwal Pelajaran - X PPLG 2</div>
-    </header>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="nav-content">
+      <img src="src/assets/smk8smg-logo.png" class="nav-logo" alt="">
+      <div class="nav-text">Jadwal Snapan</div>
+    </div>
+  </nav>
 
-    <main class="hero">
-        <div class="container">
-            <span class="badge">Website Pengingat Jadwal</span>
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <h1 class="hero-title">Your schedule, my reminder!</h1>
+    <h2 class="hero-subtitle">Smart notification system that actually works</h2>
+    
+    <!-- Check Jadwal Button -->
+    <div class="button-container">
+      <button id="checkJadwalBtn" class="check-jadwal-btn">
+        Check Jadwal
+        <svg class="chevron" id="chevron" fill="currentColor" viewBox="0 0 20 20">
+          <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+        </svg>
+      </button>
+      
+      <!-- Dropdown -->
+      <div id="dropdown" class="dropdown">
+        <div class="dropdown-content">
+          <button class="day-btn" data-day="senin">Senin</button>
+          <button class="day-btn" data-day="selasa">Selasa</button>
+          <button class="day-btn" data-day="rabu">Rabu</button>
+          <button class="day-btn" data-day="kamis">Kamis</button>
+          <button class="day-btn" data-day="jumat">Jumat</button>
         </div>
+      </div>
+    </div>
+  </section>
 
-        <div class="hero-title">
-            <h1>Bingung Besok Mapel Apa? Biar Jadwal Otomatis Yang Kasi Tau</h1>
+  <!-- Overlay -->
+  <div id="overlay" class="overlay"></div>
+
+  <!-- Modal -->
+  <div id="jadwalModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title">Jadwal Pelajaran X PPLG 2</h3>
+        <button id="closeModal" class="close-btn">
+          <svg class="close-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+              d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="modal-info">
+          <div id="selectedDay" class="selected-day">Pilih hari untuk melihat jadwal</div>
+          <div id="selectedRoom" class="selected-room">Ruang -</div>
         </div>
+        <div id="jadwalContainer" class="jadwal-container"></div>
+      </div>
+    </div>
+  </div>
 
-        <div class="subtitle">
-            <p>Solusi cerdas untuk siswa X PPLG - 2</p>
-        </div>  
-        
-        <div class="container-searchBar">
-            <select name="pilihan" id="daySelect">
-                <option value="">Pilih Hari...</option>
-                <option value="senin">Senin</option>
-                <option value="selasa">Selasa</option>
-                <option value="rabu">Rabu</option>
-                <option value="kamis">Kamis</option>
-                <option value="jumat">Jumat</option>
-            </select>
-            <button id="checkButton">Cek Jadwal</button>
-        </div>
-
-        <div id="result" class="result-container hidden">
-            <!-- Hasil jadwal akan muncul di sini -->
-        </div>
-    </main>
-
-    <script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
