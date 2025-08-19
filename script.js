@@ -5,7 +5,6 @@ const jadwalData = {
     jadwal: [
       { mapel: "Pendidikan Agama", jam: "08.30 - 10.00", guru: "Miftahul Maf'ulah, S.Ag" },
       { mapel: "Bahasa Indonesia", jam: "10.15 - 11.45", guru: "Ever Nicolas, S.Pd" },
-      { mapel: "Istirahat", jam: "12.00 - 12.15" },
       { mapel: "Bahasa Inggris", jam: "12.15 - 13.45", guru: "Kalim, S.Pd" },
       { mapel: "Pendidikan Olahraga", jam: "14.00 - 15.30", guru: "Dani Eko Prasetiyo, S.Pd" }
     ]
@@ -14,9 +13,7 @@ const jadwalData = {
     ruang: "Lab PPLG 3",
     jadwal: [
       { mapel: "Informatika", jam: "08.30 - 10.00", guru: "Andreas Aris Suhartono, S.T" },
-      { mapel: "Istirahat", jam: "10.00 - 10.15" },
       { mapel: "Pemrograman Dasar", jam: "10.15 - 11.45", guru: "Agung Setiawan, S.Kom" },
-      { mapel: "Istirahat", jam: "12.00 - 12.15" },
       { mapel: "Pemrograman Dasar", jam: "14.00 - 15.30", guru: "Yari Imantis Abdillah, S.Pd" }
     ]
   },
@@ -25,7 +22,6 @@ const jadwalData = {
     jadwal: [
       { mapel: "Bahasa Inggris", jam: "07.00 - 08.30", guru: "Kalim, S.Pd" },
       { mapel: "Matematika", jam: "08.30 - 10.00", guru: "Chofiriyah, S.Pd, M.Pd" },
-      { mapel: "Istirahat", jam: "10.00 - 10.15" },
       { mapel: "Projek Penguatan Profil Pelajar Pancasila", jam: "10.15 - 11.45", guru: "Sri Astuti Setiani, S.Pd" },
       { mapel: "Seni Musik", jam: "12.15 - 13.45", guru: "Elin Surya Shabrina, S.Pd" },
       { mapel: "Sejarah", jam: "14.00 - 15.30", guru: "Sri Astuti Setiani, S.Pd" }
@@ -36,7 +32,6 @@ const jadwalData = {
     jadwal: [
       { mapel: "Matematika", jam: "07.00 - 08.30", guru: "Chofiriyah, S.Pd, M.Pd" },
       { mapel: "IPAS", jam: "10.15 - 11.45", guru: "Uly Fitrisia Ghani, S.Pd" },
-      { mapel: "Istirahat", jam: "12.00 - 12.15" },
       { mapel: "Bahasa Jawa", jam: "12.15 - 13.45", guru: "Fanatut Khikmatil, S.Pd" },
       { mapel: "Bahasa Indonesia", jam: "14.00 - 15.30", guru: "Ever Nicolas, S.Pd" }
     ]
@@ -46,8 +41,7 @@ const jadwalData = {
     jadwal: [
       { mapel: "IPAS", jam: "07.00 - 08.30", guru: "Uly Fitrisia Ghani, S.Pd" },
       { mapel: "Pengembangan Game", jam: "08.30 - 10.00", guru: "Ahmad Zafir Hasmi, S.Pd" },
-      { mapel: "Istirahat", jam: "10.00 - 10.15" },
-      { mapel: "Komputer dan Komunikasi dalam Jaringan", jam: "10.15 - 11.45", guru: "Ahmad Zafir Hasmi, S.Pd" },
+      { mapel: "KKA", jam: "10.15 - 11.45", guru: "Ahmad Zafir Hasmi, S.Pd" },
       { mapel: "Pemrograman Dasar", jam: "12.15 - 13.45", guru: "Agung Setiawan, S.Kom" }
     ]
   }
@@ -169,4 +163,5 @@ function showJadwal(day) {
   // Open modal
   openModal();
 }
+
 
