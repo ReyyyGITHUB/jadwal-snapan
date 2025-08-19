@@ -1,56 +1,57 @@
 // Data jadwal
 const jadwalData = {
   senin: {
-    ruang: "Ruang 2",
+    ruang: "R Kelas 4",
     jadwal: [
-      { mapel: "Matematika", jam: "07.00 - 08.30" },
-      { mapel: "Bahasa Indonesia", jam: "08.30 - 10.00" },
-      { mapel: "Istirahat", jam: "10.00 - 10.15" },
-      { mapel: "Pemrograman Web", jam: "10.15 - 11.45" },
-      { mapel: "Basis Data", jam: "12.15 - 13.45" }
+      { mapel: "Pendidikan Agama", jam: "08.30 - 10.00", guru: "Miftahul Maf'ulah, S.Ag" },
+      { mapel: "Bahasa Indonesia", jam: "10.15 - 11.45", guru: "Ever Nicolas, S.Pd" },
+      { mapel: "Istirahat", jam: "12.00 - 12.15" },
+      { mapel: "Bahasa Inggris", jam: "12.15 - 13.45", guru: "Kalim, S.Pd" },
+      { mapel: "Pendidikan Olahraga", jam: "14.00 - 15.30", guru: "Dani Eko Prasetiyo, S.Pd" }
     ]
   },
   selasa: {
-    ruang: "Ruang 1",
+    ruang: "Lab PPLG 3",
     jadwal: [
-      { mapel: "Bahasa Inggris", jam: "07.00 - 08.30" },
-      { mapel: "Pemrograman Dasar", jam: "08.30 - 10.00" },
+      { mapel: "Informatika", jam: "08.30 - 10.00", guru: "Andreas Aris Suhartono, S.T" },
       { mapel: "Istirahat", jam: "10.00 - 10.15" },
-      { mapel: "Sistem Operasi", jam: "10.15 - 11.45" },
-      { mapel: "Jaringan Komputer", jam: "12.15 - 13.45" }
+      { mapel: "Pemrograman Dasar", jam: "10.15 - 11.45", guru: "Agung Setiawan, S.Kom" },
+      { mapel: "Istirahat", jam: "12.00 - 12.15" },
+      { mapel: "Pemrograman Dasar", jam: "14.00 - 15.30", guru: "Yari Imantis Abdillah, S.Pd" }
     ]
   },
   rabu: {
-    ruang: "Ruang 3",
+    ruang: "R Kelas 12",
     jadwal: [
-      { mapel: "PKN", jam: "07.00 - 08.30" },
-      { mapel: "Pemrograman Berorientasi Objek", jam: "08.30 - 10.00" },
+      { mapel: "Bahasa Inggris", jam: "07.00 - 08.30", guru: "Kalim, S.Pd" },
+      { mapel: "Matematika", jam: "08.30 - 10.00", guru: "Chofiriyah, S.Pd, M.Pd" },
       { mapel: "Istirahat", jam: "10.00 - 10.15" },
-      { mapel: "Design Grafis", jam: "10.15 - 11.45" },
-      { mapel: "Multimedia", jam: "12.15 - 13.45" }
+      { mapel: "Projek Penguatan Profil Pelajar Pancasila", jam: "10.15 - 11.45", guru: "Sri Astuti Setiani, S.Pd" },
+      { mapel: "Seni Musik", jam: "12.15 - 13.45", guru: "Elin Surya Shabrina, S.Pd" },
+      { mapel: "Sejarah", jam: "14.00 - 15.30", guru: "Sri Astuti Setiani, S.Pd" }
     ]
   },
   kamis: {
-    ruang: "Lab Komputer",
+    ruang: "R Kelas 11",
     jadwal: [
-      { mapel: "Agama", jam: "07.00 - 08.30" },
-      { mapel: "Pemrograman Mobile", jam: "08.30 - 10.00" },
-      { mapel: "Istirahat", jam: "10.00 - 10.15" },
-      { mapel: "Struktur Data", jam: "10.15 - 11.45" },
-      { mapel: "Algoritma", jam: "12.15 - 13.45" }
+      { mapel: "Matematika", jam: "07.00 - 08.30", guru: "Chofiriyah, S.Pd, M.Pd" },
+      { mapel: "IPAS", jam: "10.15 - 11.45", guru: "Uly Fitrisia Ghani, S.Pd" },
+      { mapel: "Istirahat", jam: "12.00 - 12.15" },
+      { mapel: "Bahasa Jawa", jam: "12.15 - 13.45", guru: "Fanatut Khikmatil, S.Pd" },
+      { mapel: "Bahasa Indonesia", jam: "14.00 - 15.30", guru: "Ever Nicolas, S.Pd" }
     ]
   },
   jumat: {
-    ruang: "Aula",
+    ruang: "Lab PPLG 4",
     jadwal: [
-      { mapel: "Olahraga", jam: "07.00 - 08.30" },
-      { mapel: "Seni Budaya", jam: "08.30 - 10.00" },
+      { mapel: "IPAS", jam: "07.00 - 08.30", guru: "Uly Fitrisia Ghani, S.Pd" },
+      { mapel: "Pengembangan Game", jam: "08.30 - 10.00", guru: "Ahmad Zafir Hasmi, S.Pd" },
       { mapel: "Istirahat", jam: "10.00 - 10.15" },
-      { mapel: "Prakerin", jam: "10.15 - 11.45" }
+      { mapel: "Komputer dan Komunikasi dalam Jaringan", jam: "10.15 - 11.45", guru: "Ahmad Zafir Hasmi, S.Pd" },
+      { mapel: "Pemrograman Dasar", jam: "12.15 - 13.45", guru: "Agung Setiawan, S.Kom" }
     ]
   }
 };
-
 // DOM Elements
 const checkJadwalBtn = document.getElementById('checkJadwalBtn');
 const dropdown = document.getElementById('dropdown');
@@ -168,3 +169,4 @@ function showJadwal(day) {
   // Open modal
   openModal();
 }
+
