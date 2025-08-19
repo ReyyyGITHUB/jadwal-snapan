@@ -4,8 +4,8 @@ const jadwalData = {
     ruang: "R Kelas 4",
     jadwal: [
       { mapel: "Pendidikan Agama", jam: "08.30 - 10.00", guru: "Miftahul Maf'ulah, S.Ag" },
-      { mapel: "Bahasa Indonesia", jam: "10.15 - 11.45", guru: "Ever Nicolas, S.Pd" },
       { mapel: "Bahasa Inggris", jam: "12.15 - 13.45", guru: "Kalim, S.Pd" },
+      { mapel: "Bahasa Indonesia", jam: "10.15 - 11.45", guru: "Ever Nicolas, S.Pd" },
       { mapel: "Pendidikan Olahraga", jam: "14.00 - 15.30", guru: "Dani Eko Prasetiyo, S.Pd" }
     ]
   },
@@ -33,7 +33,7 @@ const jadwalData = {
       { mapel: "Matematika", jam: "07.00 - 08.30", guru: "Chofiriyah, S.Pd, M.Pd" },
       { mapel: "IPAS", jam: "10.15 - 11.45", guru: "Uly Fitrisia Ghani, S.Pd" },
       { mapel: "Bahasa Jawa", jam: "12.15 - 13.45", guru: "Fanatut Khikmatil, S.Pd" },
-      { mapel: "Bahasa Indonesia", jam: "14.00 - 15.30", guru: "Ever Nicolas, S.Pd" }
+      { mapel: "Bahasa Inggris", jam: "14.00 - 15.30", guru: "Ever Nicolas, S.Pd" }
     ]
   },
   jumat: {
@@ -163,5 +163,6 @@ function showJadwal(day) {
   // Open modal
   openModal();
 }
+
 
 
